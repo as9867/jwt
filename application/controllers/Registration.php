@@ -20,9 +20,9 @@ class Registration extends CI_Controller {
 
 	public function add()
 	{    
-		if($this->uri->segment(10)){
+		if($this->uri->segment(3)){
 			$data['pageType'] = 'Update';
-			$editId = $this->uri->segment(10);
+			$editId = $this->uri->segment(3);
 			$data['editInfo'] =  $this->registration_model->getUserInfoById($editId);
 		}else{
 			$data['pageType'] = 'Add';
@@ -90,7 +90,7 @@ class Registration extends CI_Controller {
 		$this->load->view('common/footer');
 	}
 	public function table(){
-		
+
 		$param = array();
 		$start = ($this->uri->segment(3)) ? ($this->uri->segment(3)-1) : 0;
 		$limit = 4;
